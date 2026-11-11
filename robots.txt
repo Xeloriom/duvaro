@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://OWNER.github.io/REPO/sitemap.xml
