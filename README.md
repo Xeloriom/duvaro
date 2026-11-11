@@ -4,7 +4,7 @@ Site e-commerce statique (HTML/CSS/JS, sans dépendance), hébergeable sur GitHu
 Toutes les données (panier, comptes, commandes, avis, réglages) sont stockées dans le navigateur (localStorage) : c'est une **démo fonctionnelle**, pas une boutique de production.
 
 ## Mettre en ligne sur GitHub Pages
-1. Remplacer `OWNER/REPO` dans `index.html` (balise canonical), `robots.txt` et `sitemap.xml`.
+1. Adresse : https://xeloriom.github.io/duvaro/
 2. Pousser ce dossier sur la branche `main` du dépôt.
 3. Dépôt > Settings > Pages > Source : *Deploy from a branch*, branche `main`, dossier `/ (root)`.
 
