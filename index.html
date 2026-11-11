@@ -796,6 +796,33 @@ table{table-layout:auto}
 @media (max-width:760px){.modal.sheet{align-items:end}.modal.sheet .box{height:auto!important;max-height:86dvh;border-radius:20px 20px 0 0!important;padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px))!important}.modal.sheet .x{position:absolute;top:12px}.vs-l{grid-template-columns:1fr 1fr}}
 .toast{white-space:nowrap;max-width:calc(100% - 32px);overflow:hidden;text-overflow:ellipsis;font-size:15px!important;padding:12px 20px!important}
 .giant{white-space:nowrap!important}@media (max-width:760px){.giant{font-size:21vw!important}}
+
+/* ===== mobile menu v2 ===== */
+.mm{position:fixed;inset:0;z-index:110;background:#fff;color:#111;display:flex;flex-direction:column;opacity:0;transform:translateY(12px);transition:opacity .3s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+.mm.on{opacity:1;transform:none}
+.mm-top{display:flex;justify-content:space-between;align-items:center;height:64px;flex:none;padding:env(safe-area-inset-top,0px) max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px));border-bottom:1px solid #eee;box-sizing:content-box}
+.mm-x{width:44px;height:44px;border-radius:50%;background:#f2f2f0;display:grid;place-items:center}.mm-x .i{width:20px;height:20px}
+.mm-body{flex:1;overflow:auto;overscroll-behavior:contain;padding:8px max(20px,env(safe-area-inset-right,0px)) calc(28px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));display:grid;gap:22px;align-content:start}
+.mm-body>*{opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.mm.on .mm-body>*{opacity:1;transform:none}.mm.on .mm-body>*:nth-child(2){transition-delay:.06s}.mm.on .mm-body>*:nth-child(3){transition-delay:.12s}.mm.on .mm-body>*:nth-child(4){transition-delay:.18s}.mm.on .mm-body>*:nth-child(5){transition-delay:.24s}
+.mm-big{position:relative;display:grid;align-content:end;min-height:120px;padding:18px;background:#f2f2f0;overflow:hidden;border-radius:16px}.mm-big span{font-size:34px;letter-spacing:-.04em;line-height:1}.mm-big em{font-style:normal;font-size:14px;color:#666;margin-top:6px}
+.mm-big img{position:absolute;right:10px;bottom:-14px;height:140%;width:auto;object-fit:contain;pointer-events:none}
+.mm-cats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.mm-cats a{display:flex;align-items:center;gap:10px;padding:13px 12px;border:1px solid #ececec;border-radius:12px;font-size:15px;min-height:48px}.mm-cats a:active{background:#f2f2f0}.mm-cats .i{width:20px;height:20px;flex:none;color:#444}.mm-cats span{overflow-wrap:anywhere}
+.mm-quick{display:grid;grid-template-columns:1fr 1fr;gap:8px}.mm-quick a,.mm-quick button{display:flex;align-items:center;gap:10px;padding:14px 12px;background:#111;color:#fff;border-radius:12px;font-size:15px;text-align:left;min-height:52px}.mm-quick .i{width:20px;height:20px;flex:none}
+.mm-help{display:grid}.mm-help .lbl{margin-bottom:4px}.mm-help a{padding:13px 0;border-bottom:1px solid #f0f0f0;font-size:17px;display:flex;justify-content:space-between}.mm-help a::after{content:"→";color:#999}
+.mm-offer{display:flex;gap:14px;align-items:center;padding:14px;border-radius:16px;background:#0b120c;color:#fff}.mm-offer img{width:76px;height:76px;object-fit:contain;flex:none;background:#fff;border-radius:12px;padding:4px}.mm-offer b{display:block;font-weight:500;font-size:17px}.mm-offer small{color:#c9cbbf;font-size:13px;line-height:1.4}
+@media (max-width:900px){.links{display:none!important}}
+@media (min-width:901px){.mm{display:none!important}}
+@media (prefers-reduced-motion:reduce){.mm,.mm-body>*{transition:none!important;transform:none!important;opacity:1!important}}
+
+/* no bottom tab bar */
+.tabbar{display:none!important}
+@media (max-width:760px){body{padding-bottom:0!important}
+ .icons #bSearch,.icons a[href="#favoris"],.icons #bCart,body.top header:not(.solid) #bCart{display:grid!important}
+ body.top header:not(.solid) #bCart{border:0!important;padding:0!important;width:42px!important}body.top header:not(.solid) #bCart::before{content:none!important}
+ .icons{gap:0}.icons .ic{width:40px;height:40px}
+ .buyrow{bottom:0!important;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px))!important}
+ .cookie{bottom:calc(12px + env(safe-area-inset-bottom,0px))!important}.toast{bottom:calc(20px + env(safe-area-inset-bottom,0px))!important}}
 </style>
 
 </head>
@@ -822,7 +849,7 @@ table{table-layout:auto}
 <symbol id="c-face" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M9 15c1.7 1.3 4.3 1.3 6 0"/></symbol>
 <symbol id="c-acc" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
 <symbol id="c-pack" viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M3 9h18M12 9v11M12 9c-2-4-6-4-6-1.5S10 9 12 9c2 0 6 1 6-1.5S14 5 12 9"/></symbol>
-<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol><symbol id="i-cookie" viewBox="0 0 24 24"><path d="M21 12.5A9 9 0 1 1 11.5 3a3 3 0 0 0 4 3.5 3 3 0 0 0 3.5 4 3 3 0 0 0 2 2z"/><circle cx="8.5" cy="10" r="1.2"/><circle cx="14.5" cy="15" r="1.2"/><circle cx="9.5" cy="15.5" r="1"/><circle cx="12" cy="11" r=".6"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7v9h-5v-6H9v6H4z"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></symbol><symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol><symbol id="i-cookie" viewBox="0 0 24 24"><path d="M21 12.5A9 9 0 1 1 11.5 3a3 3 0 0 0 4 3.5 3 3 0 0 0 3.5 4 3 3 0 0 0 2 2z"/><circle cx="8.5" cy="10" r="1.2"/><circle cx="14.5" cy="15" r="1.2"/><circle cx="9.5" cy="15.5" r="1"/><circle cx="12" cy="11" r=".6"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7v9h-5v-6H9v6H4z"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></symbol><symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol>
 <symbol id="g2" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="16"/><rect x="13" y="4" width="7" height="16"/></symbol>
 <symbol id="g3" viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16"/><rect x="9.5" y="4" width="5" height="16"/><rect x="16" y="4" width="5" height="16"/></symbol>
 <symbol id="g4" viewBox="0 0 24 24"><rect x="3" y="4" width="3.5" height="16"/><rect x="8" y="4" width="3.5" height="16"/><rect x="13" y="4" width="3.5" height="16"/><rect x="18" y="4" width="3.5" height="16"/></symbol>
@@ -1030,6 +1057,10 @@ table{table-layout:auto}
  <div hidden><b class="fl">[Infos]</b><button id="bCook"><svg class="i" style="width:18px;height:18px;vertical-align:-3px;margin-right:6px"><use href="#i-cookie"/></svg>Gérer les cookies</button></div></div>
  <div class="fbot"><span>© DUVARO</span><span class="soc"><a href="#contact" aria-label="Instagram">Instagram</a><a href="#contact" aria-label="TikTok">TikTok</a><a href="#contact" aria-label="Facebook">Facebook</a></span><small>Liens réseaux sociaux à compléter</small></div><div class="giant">DUVARO<sup>®</sup></div></div></footer>
 
+<div class="mm" id="mm" hidden role="dialog" aria-label="Menu">
+ <div class="mm-top"><a href="#accueil" class="logo"><span class="mono"></span>DUVARO</a><button class="mm-x" id="mmX" aria-label="Fermer le menu"><svg class="i"><use href="#i-close"/></svg></button></div>
+ <div class="mm-body" id="mmB"></div>
+</div>
 <nav class="tabbar" aria-label="Navigation mobile">
  <a href="#accueil" data-tb="accueil"><svg class="i"><use href="#i-home"/></svg><span>Accueil</span></a>
  <a href="#boutique" data-tb="boutique"><svg class="i"><use href="#c-pack"/></svg><span>Boutique</span></a>
@@ -1333,7 +1364,7 @@ document.addEventListener('click',e=>{const o=e.target.closest('[data-open]'),a=
  if(o){if($('#modal').classList.contains('on'))close();openP(o.dataset.open);return}
  if(e.target.closest('[data-close]')||e.target.id=='scrim'||e.target.id=='modal')close()});
 addEventListener('keydown',e=>{if(e.key=='Escape')close()});
-$('#bMenu').onclick=()=>$('#links').classList.toggle('on');
+
 
 $('#fNews').onsubmit=e=>{e.preventDefault();if(!$('#nEmail').checkValidity()||!$('#nEmail').value){$('#nMsg').textContent='Saisissez une adresse email valide.';return}if(!$('#nOk').checked){$('#nMsg').textContent='Cochez la case de consentement pour vous inscrire.';return}const em=$('#nEmail').value.trim().toLowerCase(),n=S.get('news',[]);if(!n.includes(em)){n.push(em);S.set('news',n)}$('#nMsg').textContent='Merci, votre inscription est enregistrée.';track('newsletter');e.target.reset()};
 // cookies
@@ -1447,6 +1478,19 @@ $('#tbS').onclick=openSearch;$('#bSearch').onclick=openSearch;$('#tbC').onclick=
 const tbSync=()=>{const cq=cart.reduce((s,l)=>s+l.q,0);$('#tbN').textContent=cq||'';$('#tbW').textContent=wish.length||'';const h=(location.hash.slice(1)||'accueil');$$('.tabbar [data-tb]').forEach(a=>a.classList.toggle('on',a.dataset.tb==h||(a.dataset.tb=='boutique'&&['pro','prestige','boutique'].includes(h))))};
 addEventListener('hashchange',tbSync);const _rc=renderCart;renderCart=function(){_rc();tbSync()};
 $('#pBack').onclick=()=>{history.length>1?history.back():location.hash=window._lastView||'boutique'};
+// mobile menu
+(()=>{const mm=$('#mm'),g=u=>[...new Set(P.filter(p=>p.u==u&&p.cat!='Packs').map(p=>p.cat))];
+ const sec=(t,u,img)=>`<section class="mm-sec"><a class="mm-big" data-mu="${u}" data-mc=""><span>${t}</span><em>${P.filter(p=>p.u==u).length} produits</em><img src="${img}" alt=""></a><div class="mm-cats">${g(u).map(c=>`<a data-mu="${u}" data-mc="${c}"><svg class="i"><use href="#${CI[c]||'c-soin'}"/></svg><span>${c}</span></a>`).join('')}</div></section>`;
+ $('#mmB').innerHTML=sec('Professional','pro',byId('lissage').img)+sec('Prestige','prestige',byId('pr-serum').img)+`
+ <section class="mm-quick"><button data-diag><svg class="i"><use href="#c-soin"/></svg>Diagnostic 30 s</button><a href="#favoris"><svg class="i"><use href="#i-heart"/></svg>Favoris</a><a href="#compte"><svg class="i"><use href="#i-user"/></svg>Mon compte</a><a href="#suivi"><svg class="i"><use href="#i-truck"/></svg>Suivre ma commande</a></section>
+ <section class="mm-help"><p class="lbl">Aide</p><a href="#contact">Contact</a><a href="#livraison">Livraison et retours</a><a href="#faq">Questions fréquentes</a><a href="#apropos">À propos</a></section>
+ <a class="mm-offer" href="#prestige"><img src="${byId('pack-complet').img}" alt=""><span><b>Roller en jade offert</b><small>pour l'achat d'un pack Prestige, dans la limite des stocks disponibles</small></span></a>`;
+ const open=()=>{mm.hidden=false;requestAnimationFrame(()=>mm.classList.add('on'));document.documentElement.style.overflow='hidden';$('#mmX').focus()};
+ const shut=()=>{mm.classList.remove('on');document.documentElement.style.overflow='';setTimeout(()=>mm.hidden=true,350)};
+ window.closeMM=shut;
+ $('#bMenu').onclick=e=>{e.stopPropagation();open()};$('#mmX').onclick=shut;
+ mm.addEventListener('click',e=>{if(e.target.closest('a,[data-diag]'))shut()});
+ addEventListener('keydown',e=>{if(e.key=='Escape'&&!mm.hidden)shut()})})();
 renderCart();route();reveal();
 </script>
 
