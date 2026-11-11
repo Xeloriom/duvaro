@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b120c">
 <link rel="icon" href="img/monogram.png">
 <link rel="canonical" href="https://xeloriom.github.io/duvaro/">
-<style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0;-webkit-text-size-adjust:100%}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>DUVARO Boutique</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="DUVARO : produits de coiffure professionnels pour salons et barbiers (coloration sans ammoniaque, décoloration, oxydants, lissage brésilien sans formol, Collagène) et soins visage pour homme. Livraison offerte dès 60 €.">
@@ -726,6 +727,75 @@ footer .cols{grid-template-columns:1.6fr repeat(4,1fr)!important}
 .note{font-size:14px;color:#666}.rk{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0;margin:0}
 .mini-in{height:40px!important;width:110px;padding:0 10px}.adm-f{max-width:640px}.row3{display:grid;grid-template-columns:2fr 1fr 2fr;gap:8px}
 @media (max-width:900px){.kpis{grid-template-columns:1fr 1fr}.row3{grid-template-columns:1fr}}
+
+/* ===== mobile app-like layer ===== */
+.tabbar{display:none}
+@media (max-width:760px){
+ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+ .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:75;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.6) blur(18px);-webkit-backdrop-filter:saturate(1.6) blur(18px);border-top:1px solid #ececec;padding:6px max(6px,env(safe-area-inset-left,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(6px,env(safe-area-inset-right,0px))}
+ .tabbar a,.tabbar button{position:relative;display:grid;justify-items:center;gap:3px;padding:6px 0;font-size:11px;color:#777;min-height:48px;-webkit-tap-highlight-color:transparent}
+ .tabbar .i{width:23px;height:23px}.tabbar .on{color:#111}.tabbar .on .i{stroke-width:2}
+ .tabbar b{position:absolute;top:2px;left:calc(50% + 6px);min-width:17px;height:17px;border-radius:9px;background:#111;color:#fff;font-size:10px;display:grid;place-items:center;padding:0 4px}.tabbar b:empty{display:none}
+ .icons #bSearch,.icons a[href="#favoris"],.icons #bCart{display:none}
+ .cookie{bottom:calc(76px + env(safe-area-inset-bottom,0px))!important}.toast{bottom:calc(80px + env(safe-area-inset-bottom,0px))!important}
+ /* product = full-screen sheet with fixed buy bar */
+ .modal{padding:0;align-items:end}.modal .box{width:100%;max-height:100dvh;height:100dvh;border-radius:0!important;padding:56px 16px 0!important}
+ .modal .x{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:12px;z-index:5;background:#f2f2f0}
+ .pd{grid-template-columns:1fr!important;gap:16px}.pd .pic{aspect-ratio:1!important;max-height:52vh}.pd h2{font-size:30px!important}
+ .buyrow{position:sticky;bottom:0;z-index:4;background:#fff;margin:0 -16px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));border-top:1px solid #eee;display:grid!important;grid-template-columns:auto auto 1fr auto;gap:8px!important;align-items:center}
+ .bprice{font-weight:600;font-size:17px}.buyrow .qty button{width:34px;height:40px}.buyrow #mAdd{min-height:48px;font-size:15px!important;padding-inline:12px!important}.buyrow .btn.ghost{width:48px;height:48px;padding:0;justify-content:center}
+ .mrow .grid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}.mrow .card{flex:0 0 46vw;scroll-snap-align:start}
+ /* cart full width */
+ .drawer{width:100%!important;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))!important}#goCo{min-height:52px}
+ /* home carousels */
+ .g4#best{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}#best .card{flex:0 0 62vw;scroll-snap-align:start}
+ /* shop quick categories */
+ .qcats{display:flex;gap:8px;overflow-x:auto;margin:0 -16px 12px;padding:2px 16px;scrollbar-width:none;scroll-snap-type:x proximity}
+ .qcats button{flex:none;display:flex;align-items:center;gap:6px;padding:9px 14px;border:1px solid #e3e3e3;border-radius:99px;font-size:14px;white-space:nowrap;scroll-snap-align:start}.qcats button.on{background:#111;color:#fff;border-color:#111}.qcats .i{width:16px;height:16px}
+ .shop-bar{position:sticky;top:calc(72px + env(safe-area-inset-top,0px));z-index:30;background:#fff;margin-inline:-16px!important;padding:10px 16px!important}
+ .shop-head h2{font-size:34px!important}
+ /* tap targets & forms */
+ .inp,.srch input,.sel,select.inp{font-size:16px!important}.sq{min-height:46px}.btn{min-height:48px}
+ .faq summary{padding-block:4px}
+ .giant{font-size:24vw!important}footer .cols{gap:22px!important}footer a,footer button{font-size:16px!important;padding:6px 0!important}
+}
+.qcats{display:none}@media (max-width:760px){.qcats{display:flex}}
+.buyrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.bprice{display:none}@media (max-width:760px){.bprice{display:block}}
+
+.annc .as{display:none}.toast:not(.on){opacity:0;visibility:hidden}.toast{transition:transform .4s cubic-bezier(.2,.8,.2,1),opacity .3s,visibility .3s!important}
+@media (max-width:760px){.annc{font-size:13px;padding-block:8px}.annc .al{display:none}.annc .as{display:inline}
+ .icons #bCart,body.top header:not(.solid) #bCart{display:none!important}}
+
+/* ===== product page, safe areas, search overlay ===== */
+.pp{padding-top:clamp(16px,3vw,32px)!important}.back{display:inline-flex;align-items:center;gap:6px;font-size:15px;margin-bottom:12px;padding:8px 0}.back .i{width:18px;height:18px}
+#v-produit .pd h2{font-size:clamp(30px,4vw,52px)!important}
+.srch-o{position:fixed;inset:0;z-index:120;background:#fff;display:flex;flex-direction:column;padding:calc(10px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(16px,env(safe-area-inset-left,0px));overflow:auto;overscroll-behavior:contain}
+.so-top{display:flex;align-items:center;gap:10px;border-bottom:1px solid #111;padding:8px 0 12px;position:sticky;top:0;background:#fff}.so-top .i{width:22px;height:22px;flex:none}
+#soQ{flex:1;min-width:0;border:0;outline:0;font-size:20px;background:none;padding:6px 0}#soX{font-size:15px;text-decoration:underline;flex:none}
+.so-sug{display:flex;flex-wrap:wrap;gap:8px;padding:18px 0}.so-sug .lbl{flex-basis:100%;margin:0}.so-sug button{padding:9px 14px;border:1px solid #e3e3e3;border-radius:99px;font-size:15px}
+.so-res{display:grid;gap:4px;padding-bottom:24px;max-width:760px}.so-it{display:flex;gap:14px;align-items:center;text-align:left;padding:8px 0;border-bottom:1px solid #f2f2f2}.so-it img{width:56px;height:56px;object-fit:contain;flex:none}.so-it b{display:block;font-weight:500;font-size:16px}.so-it small{color:var(--mute);font-size:13px}.so-it span{min-width:0}
+@media (min-width:761px){.srch-o{inset:0 0 auto;max-height:80vh;border-bottom:1px solid #e6e6e6;padding-inline:max(56px,env(safe-area-inset-left,0px))}}
+@media (max-width:760px){
+ .buyrow{bottom:calc(64px + env(safe-area-inset-bottom,0px))!important;margin:0 -16px!important;padding-bottom:10px!important}
+ #v-produit .pd .pic{max-height:48vh}
+ .links{padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))!important;height:100dvh!important}
+ .side{padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))!important;height:100dvh;max-height:100dvh!important;z-index:90!important}
+ .drawer{height:100dvh;z-index:90!important}.scrim{z-index:85!important}.modal{z-index:95!important}.modal .box{height:100dvh;overflow:auto;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))!important}
+ header{padding-top:env(safe-area-inset-top,0px)}
+}
+/* never let text overflow its box */
+.meta h4,.meta small,.mg-feat b,.nd-card b,.line b,.so-it b,.rk span,td,.crumb,.chips button,.pd h2,.faq summary{overflow-wrap:anywhere}
+table{table-layout:auto}
+.nl-ok{width:100%;min-width:0;flex:1 1 100%!important}.news form{width:min(520px,100%)}
+@media (max-width:600px){.news form .nl-ok{flex:none!important}}
+
+/* variant bottom sheet */
+.vs{display:grid;gap:14px}.vs-h{display:flex;gap:14px;align-items:center;padding-right:44px}.vs-h img{width:64px;height:64px;object-fit:contain;flex:none}.vs-h b{display:block;font-weight:500;font-size:18px}.vs-h small{color:var(--mute)}
+.vs-l{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;max-height:46vh;overflow:auto}.vs-l button{display:flex;align-items:center;gap:8px;padding:12px;border:1px solid #e3e3e3;text-align:left;font-size:15px;min-height:48px}.vs-l button:hover{border-color:#111}
+.modal.sheet .box{width:min(560px,100%)}
+@media (max-width:760px){.modal.sheet{align-items:end}.modal.sheet .box{height:auto!important;max-height:86dvh;border-radius:20px 20px 0 0!important;padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px))!important}.modal.sheet .x{position:absolute;top:12px}.vs-l{grid-template-columns:1fr 1fr}}
+.toast{white-space:nowrap;max-width:calc(100% - 32px);overflow:hidden;text-overflow:ellipsis;font-size:15px!important;padding:12px 20px!important}
+.giant{white-space:nowrap!important}@media (max-width:760px){.giant{font-size:21vw!important}}
 </style>
 
 </head>
@@ -752,14 +822,14 @@ footer .cols{grid-template-columns:1.6fr repeat(4,1fr)!important}
 <symbol id="c-face" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M9 15c1.7 1.3 4.3 1.3 6 0"/></symbol>
 <symbol id="c-acc" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
 <symbol id="c-pack" viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M3 9h18M12 9v11M12 9c-2-4-6-4-6-1.5S10 9 12 9c2 0 6 1 6-1.5S14 5 12 9"/></symbol>
-<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol><symbol id="i-cookie" viewBox="0 0 24 24"><path d="M21 12.5A9 9 0 1 1 11.5 3a3 3 0 0 0 4 3.5 3 3 0 0 0 3.5 4 3 3 0 0 0 2 2z"/><circle cx="8.5" cy="10" r="1.2"/><circle cx="14.5" cy="15" r="1.2"/><circle cx="9.5" cy="15.5" r="1"/><circle cx="12" cy="11" r=".6"/></symbol><symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol><symbol id="i-cookie" viewBox="0 0 24 24"><path d="M21 12.5A9 9 0 1 1 11.5 3a3 3 0 0 0 4 3.5 3 3 0 0 0 3.5 4 3 3 0 0 0 2 2z"/><circle cx="8.5" cy="10" r="1.2"/><circle cx="14.5" cy="15" r="1.2"/><circle cx="9.5" cy="15.5" r="1"/><circle cx="12" cy="11" r=".6"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7v9h-5v-6H9v6H4z"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></symbol><symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol>
 <symbol id="g2" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="16"/><rect x="13" y="4" width="7" height="16"/></symbol>
 <symbol id="g3" viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16"/><rect x="9.5" y="4" width="5" height="16"/><rect x="16" y="4" width="5" height="16"/></symbol>
 <symbol id="g4" viewBox="0 0 24 24"><rect x="3" y="4" width="3.5" height="16"/><rect x="8" y="4" width="3.5" height="16"/><rect x="13" y="4" width="3.5" height="16"/><rect x="18" y="4" width="3.5" height="16"/></symbol>
 </svg>
 <div id="ld" role="status" aria-label="Chargement"><div class="l2"><span class="l2-m"></span><span class="l2-w">DUVARO</span><span class="l2-bar"><i></i></span><span class="l2-n"><span id="ldN">0</span>%</span></div></div>
 <div id="prog"></div><div id="cur"></div>
-<div class="annc"><a href="#prestige">Roller visage en jade offert pour l'achat d'un pack DUVARO Prestige · dans la limite des stocks disponibles</a></div>
+<div class="annc"><a href="#prestige"><span class="al">Roller visage en jade offert pour l'achat d'un pack DUVARO Prestige · dans la limite des stocks disponibles</span><span class="as">Roller en jade offert avec un pack Prestige*</span></a></div>
 <header id="hdr"><div class="wrap nav">
  <a href="#accueil" class="logo"><span class="mono"></span>DUVARO</a>
  <nav class="links" id="links"><a href="#boutique" id="mBtn" aria-haspopup="true" aria-expanded="false">Boutique <svg class="i" style="width:12px;height:12px;vertical-align:-1px"><use href="#i-down"/></svg></a><div class="mega-m" id="megaM"></div><a href="#pro">Professional</a><a href="#prestige">Prestige</a><a href="#compte">Compte</a></nav>
@@ -850,7 +920,7 @@ footer .cols{grid-template-columns:1.6fr repeat(4,1fr)!important}
 <section class="wrap reas"><div><svg class="i"><use href="#i-truck"/></svg><b>Livraison</b><span>Tarifs et délais affichés avant paiement</span></div><div><svg class="i"><use href="#i-gift"/></svg><b>Retours</b><span>Rétractation de 14 jours</span></div><div><svg class="i"><use href="#c-face"/></svg><b>Service client</b><span><a href="#contact">Nous écrire</a></span></div><div><svg class="i"><use href="#i-search"/></svg><b>Suivi</b><span><a href="#suivi">Suivre ma commande</a></span></div></section>
 <section class="wrap news">
  <h2>Nouveautés et conseils pros.</h2><p style="margin:0;color:var(--mute)">Une lettre occasionnelle : nouveaux produits, techniques, offres réelles. Désinscription en un clic.</p>
- <form id="fNews" novalidate><input class="inp" id="nEmail" type="email" placeholder="Votre email" required aria-label="Email"><button class="sq">S'inscrire</button><label class="nl-ok"><input type="checkbox" id="nOk" required> J'accepte de recevoir la newsletter DUVARO et j'ai lu la <a href="#confidentialite">politique de confidentialité</a>.</label></form><div class="err" id="nMsg"></div>
+ <form id="fNews" novalidate><input class="inp" id="nEmail" type="email" autocomplete="email" inputmode="email" placeholder="Votre email" required aria-label="Email"><button class="sq">S'inscrire</button><label class="nl-ok"><input type="checkbox" id="nOk" required> J'accepte de recevoir la newsletter DUVARO et j'ai lu la <a href="#confidentialite">politique de confidentialité</a>.</label></form><div class="err" id="nMsg"></div>
 </section>
 </div>
 
@@ -866,7 +936,7 @@ footer .cols{grid-template-columns:1.6fr repeat(4,1fr)!important}
    <ul class="dd-l" role="listbox"><li role="option" data-v="" class="on">Pertinence</li><li role="option" data-v="pop">Popularité</li><li role="option" data-v="new">Nouveautés</li><li role="option" data-v="pa">Prix croissant</li><li role="option" data-v="pd">Prix décroissant</li><li role="option" data-v="az">Nom A → Z</li></ul></div>
   <div class="dens" id="dens"><button data-g="2" aria-label="2 colonnes"><svg class="i"><use href="#g2"/></svg></button><button data-g="3" aria-label="3 colonnes"><svg class="i"><use href="#g3"/></svg></button><button data-g="4" class="on" aria-label="4 colonnes"><svg class="i"><use href="#g4"/></svg></button></div>
  </div>
- <div class="chips" id="chips"></div>
+ <div class="qcats" id="qcats"></div><div class="chips" id="chips"></div>
  <div class="shop-body">
   <aside class="side" id="side" aria-label="Filtres">
    <div class="side-h"><b>Filtres</b><button class="x" id="fClose" style="position:static">×</button></div>
@@ -880,13 +950,14 @@ footer .cols{grid-template-columns:1.6fr repeat(4,1fr)!important}
  </div>
 </section></div>
 
+<div class="view" id="v-produit" hidden><section class="wrap pp"><button class="back" id="pBack"><svg class="i"><use href="#i-left"/></svg>Retour</button><div id="pBody"></div></section></div>
 <div class="view" id="v-favoris" hidden><section class="wrap"><div class="head"><h2>Mes <em>favoris</em></h2></div><div class="grid" id="favG"></div></section></div>
 
 <div class="view" id="v-commande" hidden><section class="wrap" style="max-width:1000px"><div class="head"><h2>Commande</h2><span class="eyebrow">Mode démo · aucun paiement réel</span></div>
  <div class="pd"><form class="form" id="fCo" novalidate>
-  <b>1. Coordonnées</b><div class="row"><input class="inp" id="coF" placeholder="Prénom" required><input class="inp" id="coL" placeholder="Nom" required></div>
-  <input class="inp" id="coE" type="email" placeholder="Email" required><input class="inp" id="coA" placeholder="Adresse" required>
-  <div class="row"><input class="inp" id="coZ" placeholder="Code postal" pattern="\d{5}" required><input class="inp" id="coC" placeholder="Ville" required></div>
+  <b>1. Coordonnées</b><div class="row"><input class="inp" id="coF" placeholder="Prénom" autocomplete="given-name" required><input class="inp" id="coL" placeholder="Nom" autocomplete="family-name" required></div>
+  <input class="inp" id="coE" type="email" placeholder="Email" autocomplete="email" inputmode="email" required><input class="inp" id="coA" placeholder="Adresse" autocomplete="street-address" required>
+  <div class="row"><input class="inp" id="coZ" placeholder="Code postal" autocomplete="postal-code" inputmode="numeric" maxlength="5" pattern="\d{5}" required><input class="inp" id="coC" placeholder="Ville" autocomplete="address-level2" required></div>
   <b>2. Livraison</b><select class="inp" id="coS"></select>
   <b>3. Paiement</b><select class="inp" id="coP"><option>Carte bancaire</option><option>PayPal</option><option>Virement (professionnels)</option></select>
   <div class="err" id="coErr"></div><button class="btn" style="justify-content:center">Confirmer la commande</button></form>
@@ -959,6 +1030,15 @@ footer .cols{grid-template-columns:1.6fr repeat(4,1fr)!important}
  <div hidden><b class="fl">[Infos]</b><button id="bCook"><svg class="i" style="width:18px;height:18px;vertical-align:-3px;margin-right:6px"><use href="#i-cookie"/></svg>Gérer les cookies</button></div></div>
  <div class="fbot"><span>© DUVARO</span><span class="soc"><a href="#contact" aria-label="Instagram">Instagram</a><a href="#contact" aria-label="TikTok">TikTok</a><a href="#contact" aria-label="Facebook">Facebook</a></span><small>Liens réseaux sociaux à compléter</small></div><div class="giant">DUVARO<sup>®</sup></div></div></footer>
 
+<nav class="tabbar" aria-label="Navigation mobile">
+ <a href="#accueil" data-tb="accueil"><svg class="i"><use href="#i-home"/></svg><span>Accueil</span></a>
+ <a href="#boutique" data-tb="boutique"><svg class="i"><use href="#c-pack"/></svg><span>Boutique</span></a>
+ <button id="tbS"><svg class="i"><use href="#i-search"/></svg><span>Recherche</span></button>
+ <a href="#favoris" data-tb="favoris"><svg class="i"><use href="#i-heart"/></svg><span>Favoris</span><b id="tbW"></b></a>
+ <button id="tbC"><svg class="i"><use href="#i-bag"/></svg><span>Panier</span><b id="tbN"></b></button>
+</nav>
+<div class="srch-o" id="so" hidden role="dialog" aria-label="Recherche"><div class="so-top"><svg class="i"><use href="#i-search"/></svg><input id="soQ" type="search" enterkeyhint="search" autocomplete="off" placeholder="Rechercher un produit…" aria-label="Rechercher"><button id="soX" aria-label="Fermer">Annuler</button></div>
+ <div class="so-sug" id="soS"></div><div class="so-res" id="soR"></div></div>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="cart" aria-label="Panier"><div style="display:flex;justify-content:space-between;align-items:center"><h3 style="font-size:40px">Panier</h3><button class="x" style="position:static" data-close>×</button></div>
  <div id="ship" style="font-size:13px"></div><div class="list" id="cartL"></div>
@@ -1064,6 +1144,7 @@ function shop(){const q=$('#q').value.trim();if(F.cat){F.cats=[F.cat];F.cat=''}
  $('#shopT').textContent=F.u=='pro'?'Professional':F.u=='prestige'?'Prestige':'Tous les produits';$('#crumb').textContent='Boutique'+(F.u?' / '+(F.u=='pro'?'Professional':'Prestige'):'')+(F.cats.length==1?' / '+F.cats[0]:'');
  $('#shopN').textContent=L.length+' produit'+(L.length>1?'s':'');
  const ch=[...(F.u?[['u',F.u=='pro'?'Professional':'Prestige']]:[]),...F.cats.map(c=>['c',c]),...(F.max<130?[['m','≤ '+eur(F.max)]]:[]),...(F.promo?[['p','Promotions']]:[]),...(q?[['q','« '+q+' »']]:[])];
+ $('#qcats').innerHTML=['',...cats].map(c=>`<button class="${(c==''&&!F.cats.length)||(F.cats.length==1&&F.cats[0]==c)?'on':''}" data-qc="${c}">${c?`<svg class="i"><use href="#${CI[c]||'c-soin'}"/></svg>`:''}${c||'Tout'}</button>`).join('');
  $('#chips').innerHTML=ch.map(([k,l])=>`<button data-rm-f="${k}|${esc(l)}">${esc(l)} <span>×</span></button>`).join('')+(ch.length?'<button class="clr" data-rm-f="all">Tout effacer</button>':'');
  $('#fCount').textContent=ch.length?ch.length:'';
  $('#shopG').style.setProperty('--cols',GRID);$('#shopG').innerHTML=L.slice(0,LIM).map(card).join('')||'<p>Aucun produit ne correspond. Essayez « barbe », « blond » ou « lissage », ou effacez les filtres.</p>';
@@ -1072,6 +1153,7 @@ function shop(){const q=$('#q').value.trim();if(F.cat){F.cats=[F.cat];F.cat=''}
 $('#uniF').onchange=e=>{F.u=e.target.value;LIM=12;shop()};
 $('#catF').onchange=e=>{const c=e.target.value;F.cats=e.target.checked?[...F.cats,c]:F.cats.filter(x=>x!=c);LIM=12;shop()};
 $('#pR').oninput=e=>{F.max=+e.target.value;LIM=12;shop()};$('#pPromo').onchange=e=>{F.promo=e.target.checked;LIM=12;shop()};
+$('#qcats').onclick=e=>{const b=e.target.closest('[data-qc]');if(!b)return;F.cats=b.dataset.qc?[b.dataset.qc]:[];LIM=12;shop();b.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'})};
 $('#fReset').onclick=()=>{F={u:'',cat:'',cats:[],max:130,promo:false};$('#q').value='';LIM=12;shop()};
 $('#chips').onclick=e=>{const b=e.target.closest('[data-rm-f]');if(!b)return;const [k,l]=b.dataset.rmF.split('|');if(k=='all'){$('#fReset').click();return}
  if(k=='u')F.u='';if(k=='c')F.cats=F.cats.filter(c=>esc(c)!=l);if(k=='m')F.max=130;if(k=='p')F.promo=false;if(k=='q')$('#q').value='';LIM=12;shop()};
@@ -1111,16 +1193,23 @@ const ld=(id,obj)=>{let el=document.getElementById(id);if(!el){el=document.creat
 function seoProduct(p){setMeta(`${p.name} | DUVARO`,`${p.name}${p.size?' '+p.size:''} : ${p.desc} Prix ${eur(p.price)} TTC.`);
  ld('ldp',{'@context':'https://schema.org','@type':'Product',name:p.name,brand:{'@type':'Brand',name:'DUVARO'},description:p.desc,image:location.origin+location.pathname.replace(/[^/]*$/,'')+p.img,sku:p.id,offers:{'@type':'Offer',price:p.price,priceCurrency:'EUR',availability:typeof p.stock=='number'&&p.stock<=0?'https://schema.org/OutOfStock':'https://schema.org/InStock'}});
  ld('ldb',{'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{name:'Accueil',h:'accueil'},{name:p.u=='pro'?'Professional':'Prestige',h:p.u},{name:p.name,h:'produit-'+p.id}].map((x,i)=>({'@type':'ListItem',position:i+1,name:x.name,item:location.origin+location.pathname+'#'+x.h}))})}
-function openP(id){const p=byId(id);if(!p)return;track('view_item',id);const RV=S.get('recent',[]).filter(x=>x!=id);S.set('recent',[id,...RV].slice(0,8));seoProduct(p);try{history.replaceState(null,'','#produit-'+id)}catch(e){}let sel=p.var?p.var[p.id=='ox'?1:0]:null;let qty=1;
+function openP(id){if(!byId(id))return;if(location.hash!='#produit-'+id)location.hash='produit-'+id;else route()}
+function varSheet(p){const B=$('#mBody');const col=p.id!='ox';
+ B.innerHTML=`<div class="vs"><div class="vs-h"><img src="${p.img}" alt=""><div><b>${p.name}</b><small>${eur(p.price)} · ${p.size}</small></div></div><p class="lbl">${col?'Choisissez la nuance':'Choisissez le volume'}</p>
+ <div class="vs-l">${p.var.map(v=>{const c=NU.find(n=>n[0]==v);return `<button data-vs="${esc(v)}">${c?`<span class="dot" style="background:${c[1]}"></span>`:''}${v}</button>`}).join('')}</div>
+ <button class="sq" data-open="${p.id}" style="width:100%;margin-top:6px">Voir la fiche produit</button></div>`;
+ B.onclick=e=>{const b=e.target.closest('[data-vs]');if(b){add(p.id,b.dataset.vs,1);close();B.onclick=null}};
+ $('#modal').classList.add('on','sheet');$('#scrim').classList.add('on')}
+function renderP(id){const p=byId(id);if(!p)return;track('view_item',id);const RV=S.get('recent',[]).filter(x=>x!=id);S.set('recent',[id,...RV].slice(0,8));seoProduct(p);let sel=p.var?p.var[p.id=='ox'?1:0]:null;let qty=1;
  const rv=(S.get('reviews',{})[id]||[]).filter(r=>r.ok);
- const draw=()=>{$('#mBody').innerHTML=`<nav class="crumb" aria-label="Fil d'Ariane"><a href="#accueil">Accueil</a> / <a href="#${p.u=='pro'?'pro':'prestige'}">${p.u=='pro'?'Professional':'Prestige'}</a> / <span>${p.name}</span></nav><div class="pd"><div class="pic zoom-box ${p.u=='prestige'?'pr':''} ${p.id.startsWith('pack')?'wide':''}" title="Survolez ou touchez pour zoomer"><img id="mImg" src="${p.id=='ox'?'img/ox'+sel.split(' ')[0]+'.webp?v=10':p.img}" alt=""></div>
+ const draw=()=>{$('#pBody').innerHTML=`<nav class="crumb" aria-label="Fil d'Ariane"><a href="#accueil">Accueil</a> / <a href="#${p.u=='pro'?'pro':'prestige'}">${p.u=='pro'?'Professional':'Prestige'}</a> / <span>${p.name}</span></nav><div class="pd"><div class="pic zoom-box ${p.u=='prestige'?'pr':''} ${p.id.startsWith('pack')?'wide':''}" title="Survolez ou touchez pour zoomer"><img id="mImg" src="${p.id=='ox'?'img/ox'+sel.split(' ')[0]+'.webp?v=10':p.img}" alt=""></div>
  <div style="display:flex;flex-direction:column;gap:16px"><span class="eyebrow">${p.u=='pro'?'Professional':'Prestige'} · ${p.cat}</span><h2 style="font-size:52px">${p.name}</h2>
  <div class="price" style="font-size:22px">${eur(unit(p))}${p.old?`<span class="old">${eur(p.old)}</span>`:''}</div><small style="color:var(--mute);margin-top:-10px">Prix TTC</small>
  ${typeof p.stock=='number'?`<p class="stk ${p.stock>0?'ok':'no'}">${p.stock>0?'En stock':'Rupture de stock'}</p>`:''}
  <p style="margin:0">${p.desc}${p.size?' · '+p.size:''}</p>
  ${p.id.startsWith('pack')&&p.u=='prestige'?'<p style="margin:0;display:flex;gap:8px;align-items:center"><svg class="i"><use href="#i-gift"/></svg>Roller visage en jade offert, dans la limite des stocks disponibles</p>':''}
  ${p.var?`<div><span class="eyebrow">${p.id=='ox'?'Volume':'Nuance'} : ${sel}</span><div class="sw" style="margin-top:8px">${p.var.map(v=>{const c=NU.find(n=>n[0]==v);return `<button class="${v==sel?'on':''}" data-v="${v}">${c?`<span class="dot" style="background:${c[1]}"></span>`:''}${v}</button>`}).join('')}</div></div>`:''}
- <div style="display:flex;gap:10px;flex-wrap:wrap"><span class="qty"><button data-q="-1">−</button><b style="min-width:24px;text-align:center">${qty}</b><button data-q="1">+</button></span><button class="btn" id="mAdd" style="flex:1;justify-content:center" ${typeof p.stock=='number'&&p.stock<=0?'disabled':''}>${typeof p.stock=='number'&&p.stock<=0?'Indisponible':'Ajouter au panier'}</button><button class="btn ghost" data-wish="${p.id}">${wish.includes(p.id)?'♥':'♡'}</button></div>
+ <div class="buyrow"><span class="bprice">${eur(unit(p))}</span><span class="qty"><button data-q="-1">−</button><b style="min-width:24px;text-align:center">${qty}</b><button data-q="1">+</button></span><button class="btn" id="mAdd" style="flex:1;justify-content:center" ${typeof p.stock=='number'&&p.stock<=0?'disabled':''}>${typeof p.stock=='number'&&p.stock<=0?'Indisponible':'Ajouter au panier'}</button><button class="btn ghost" data-wish="${p.id}">${wish.includes(p.id)?'♥':'♡'}</button></div>
  <div style="display:grid;gap:8px;font-size:14px;color:var(--mute)"><span style="display:flex;gap:10px;align-items:center"><svg class="i"><use href="#i-truck"/></svg>Frais et délais de livraison affichés avant le paiement</span><span style="display:flex;gap:10px;align-items:center"><svg class="i"><use href="#i-gift"/></svg>Droit de rétractation de 14 jours (vente à distance)</span></div>
  <details><summary><b>Utilisation</b></summary><p>Se référer au mode d'emploi et aux précautions figurant sur l'emballage.</p></details>
  <details><summary><b>Livraison & retours</b></summary><p>Modes, tarifs et délais de livraison indiqués à l'étape de commande. Vous disposez d'un délai légal de rétractation de 14 jours à compter de la réception. Conditions détaillées : <a href="#livraison" style="text-decoration:underline">Livraison et retours</a>.</p></details>
@@ -1130,13 +1219,13 @@ function openP(id){const p=byId(id);if(!p)return;track('view_item',id);const RV=
  <form id="fRv" class="form"><div class="row"><input class="inp" id="rvN" placeholder="Votre prénom" required><select class="inp" id="rvS"><option value="5">★★★★★</option><option value="4">★★★★</option><option value="3">★★★</option><option value="2">★★</option><option value="1">★</option></select></div><textarea class="inp" id="rvT" placeholder="Votre avis" required></textarea><button class="btn ghost">Envoyer l'avis</button><small style="color:var(--mute)">Les avis sont publiés après vérification par DUVARO.</small></form></details></div></div>
  ${(()=>{const cx=P.filter(x=>x.cat==p.cat&&x.id!=p.id).slice(0,4);return cx.length?`<div class="mrow"><h3>Produits complémentaires</h3><div class="grid g4">${cx.map(card).join('')}</div></div>`:''})()}
  ${(()=>{const rc=S.get('recent',[]).filter(x=>x!=p.id).map(byId).filter(Boolean).slice(0,4);return rc.length?`<div class="mrow"><h3>Récemment consultés</h3><div class="grid g4">${rc.map(card).join('')}</div></div>`:''})()}`;
- const zb=$('#mBody .zoom-box'),zi=$('#mImg');if(zb){zb.onpointermove=e=>{if(e.pointerType!='mouse')return;const r=zb.getBoundingClientRect();zi.style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`;zb.classList.add('zm')};zb.onpointerleave=()=>zb.classList.remove('zm');zb.onclick=e=>{if(e.pointerType=='mouse')return;zb.classList.toggle('zm')}}
- $('#mBody').querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{sel=b.dataset.v;draw()});
- $('#mBody').querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{qty=Math.max(1,qty+ +b.dataset.q);draw()});
- $('#mAdd').onclick=()=>{add(p.id,sel,qty,$('#mImg'));close()};
+ const zb=$('#pBody .zoom-box'),zi=$('#mImg');if(zb){zb.onpointermove=e=>{if(e.pointerType!='mouse')return;const r=zb.getBoundingClientRect();zi.style.transformOrigin=`${(e.clientX-r.left)/r.width*100}% ${(e.clientY-r.top)/r.height*100}%`;zb.classList.add('zm')};zb.onpointerleave=()=>zb.classList.remove('zm');zb.onclick=e=>{if(e.pointerType=='mouse')return;zb.classList.toggle('zm')}}
+ $('#pBody').querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{sel=b.dataset.v;draw()});
+ $('#pBody').querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{qty=Math.max(1,qty+ +b.dataset.q);draw()});
+ $('#mAdd').onclick=()=>{add(p.id,sel,qty,$('#mImg'))};
  $('#fRv').onsubmit=e=>{e.preventDefault();const all=S.get('reviews',{});(all[id]=all[id]||[]).push({name:$('#rvN').value,n:+$('#rvS').value,t:$('#rvT').value,ok:false,date:new Date().toLocaleDateString('fr-FR')});S.set('reviews',all);toast('Merci, votre avis sera publié après vérification');draw()}};
- draw();$('#modal').classList.add('on');$('#scrim').classList.add('on')}
-function close(){$('#side')&&$('#side').classList.remove('on');if(location.hash.startsWith('#produit-'))try{history.replaceState(null,'','#'+(window._lastView||'accueil'))}catch(e){}
+ draw();scrollTo(0,0)}
+function close(){$('#side')&&$('#side').classList.remove('on');$('#modal').classList.remove('sheet');
 $('#modal').classList.remove('on');$('#cart').classList.remove('on');$('#scrim').classList.remove('on')}
 
 /* ---------- cart ---------- */
@@ -1180,8 +1269,8 @@ $('#fCo').onsubmit=e=>{e.preventDefault();const f=$('#fCo');const bad=[...f.quer
 async function hash(s){try{const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){return btoa(unescape(encodeURIComponent(s)))}}
 function acc(){const u=user(),el=$('#acc');
  if(!u){el.innerHTML=`<div class="head"><h2>Mon <em>compte</em></h2></div><div class="pd">
- <form class="form box2" id="fLog" novalidate><h3 style="font-size:36px">Connexion</h3><input class="inp" id="lE" type="email" placeholder="Email" required><input class="inp" id="lP" type="password" placeholder="Mot de passe" required><div class="err" id="lErr"></div><button class="btn">Se connecter</button></form>
- <form class="form box2" id="fReg" novalidate><h3 style="font-size:36px">Créer un compte</h3><div class="row"><input class="inp" id="rF" placeholder="Prénom" required><input class="inp" id="rL" placeholder="Nom" required></div><input class="inp" id="rE" type="email" placeholder="Email" required><input class="inp" id="rP" type="password" placeholder="Mot de passe (8 caractères min.)" minlength="8" required>
+ <form class="form box2" id="fLog" novalidate><h3 style="font-size:36px">Connexion</h3><input class="inp" id="lE" type="email" autocomplete="email" inputmode="email" placeholder="Email" required><input class="inp" id="lP" type="password" autocomplete="current-password" placeholder="Mot de passe" required><div class="err" id="lErr"></div><button class="btn">Se connecter</button></form>
+ <form class="form box2" id="fReg" novalidate><h3 style="font-size:36px">Créer un compte</h3><div class="row"><input class="inp" id="rF" placeholder="Prénom" required><input class="inp" id="rL" placeholder="Nom" required></div><input class="inp" id="rE" type="email" autocomplete="email" inputmode="email" placeholder="Email" required><input class="inp" id="rP" type="password" autocomplete="new-password" placeholder="Mot de passe (8 caractères min.)" minlength="8" required>
  <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="rPro"> Je suis un professionnel (salon, barbier)</label><input class="inp" id="rSalon" placeholder="Nom du salon" hidden><div class="err" id="rErr"></div><button class="btn">Créer mon compte</button></form></div>`;
  $('#rPro').onchange=e=>$('#rSalon').hidden=!e.target.checked;
  $('#fLog').onsubmit=async e=>{e.preventDefault();if(!$('#lE').value||!$('#lP').value){$('#lErr').textContent='Saisissez votre email et votre mot de passe.';return}const x=S.get('users',[]).find(x=>x.email==$('#lE').value.trim().toLowerCase());if(!x||x.h!=await hash($('#lP').value)){$('#lErr').textContent='Email ou mot de passe incorrect.';return}S.set('session',x.email);toast('Bonjour '+x.first);acc();renderCart()};
@@ -1229,10 +1318,10 @@ function adm(){const os=S.get('orders',[]),ok=os.filter(o=>o.status!='Annulée')
  $('#rst').onclick=()=>{$('#rstC').innerHTML='Tout effacer ? <button class="btn" id="rstY">Oui, effacer</button>';$('#rstY').onclick=()=>{try{Object.keys(localStorage).filter(k=>k.startsWith('dv:')).forEach(k=>localStorage.removeItem(k))}catch(e){}cart=[];wish=[];promo='';save();adm();toast('Données réinitialisées')}}}
 
 /* ---------- router ---------- */
-function route(){let h=location.hash.slice(1)||'accueil';if(h.startsWith('produit-')){const id=h.slice(8);if(!$('#v-'+(window._lastView||'x'))||$('#v-accueil').hidden&&$('#v-boutique').hidden){window._lastView='boutique';$$('.view').forEach(x=>x.hidden=x.id!='v-boutique');shop()}openP(id);return}window._lastView=h;
+function route(){let h=location.hash.slice(1)||'accueil';let pid=null;if(h.startsWith('produit-')){pid=h.slice(8);h=byId(pid)?'produit':'404'}else window._lastView=h;
  if(h=='pro'||h=='prestige'){F.u=h;F.cat='';F.cats=[];h='boutique'}
- const v=$('#v-'+h)?h:'404';const TT={accueil:['DUVARO · Produits de coiffure professionnels & soins pour homme','Coloration sans ammoniaque, décoloration, oxydants, lissage sans formol, gamme Collagène pour salons et barbiers, et soins visage pour homme.'],boutique:['Boutique · DUVARO','Tous les produits DUVARO Professional et Prestige : filtres par catégorie, prix et univers.'],favoris:['Mes favoris · DUVARO','Vos produits DUVARO favoris.'],commande:['Commande · DUVARO','Finaliser votre commande DUVARO.'],compte:['Mon compte · DUVARO','Connexion, commandes et informations de compte.'],faq:['FAQ · DUVARO','Questions fréquentes : livraison, commandes, produits.'],apropos:['À propos · DUVARO','La marque DUVARO : Professional et Prestige.'],contact:['Contact · DUVARO','Contacter le service client DUVARO.'],livraison:['Livraison et retours · DUVARO','Modes de livraison, droit de rétractation et remboursement.'],cgv:['CGV · DUVARO','Conditions générales de vente.'],mentions:['Mentions légales · DUVARO','Mentions légales du site DUVARO.'],confidentialite:['Confidentialité · DUVARO','Politique de confidentialité et données personnelles.'],cookies:['Cookies · DUVARO','Gérer vos préférences de cookies.'],suivi:['Suivi de commande · DUVARO','Suivre une commande DUVARO.'],'404':['Page introuvable · DUVARO','Cette page n’existe pas.'],admin:['Espace gérant · DUVARO','Back-office de démonstration.'],merci:['Merci · DUVARO','Commande confirmée.']};const tt=TT[v]||TT.accueil;setMeta(tt[0],tt[1]);track('page',v);const go=()=>{$$('.view').forEach(x=>x.hidden=x.id!='v-'+v);
-  ({accueil:home,boutique:shop,favoris:fav,commande:co,compte:acc,admin:adm,cookies:ckPage})[v]?.();
+ const v=$('#v-'+h)?h:'404';const TT={accueil:['DUVARO · Produits de coiffure professionnels & soins pour homme','Coloration sans ammoniaque, décoloration, oxydants, lissage sans formol, gamme Collagène pour salons et barbiers, et soins visage pour homme.'],boutique:['Boutique · DUVARO','Tous les produits DUVARO Professional et Prestige : filtres par catégorie, prix et univers.'],favoris:['Mes favoris · DUVARO','Vos produits DUVARO favoris.'],commande:['Commande · DUVARO','Finaliser votre commande DUVARO.'],compte:['Mon compte · DUVARO','Connexion, commandes et informations de compte.'],faq:['FAQ · DUVARO','Questions fréquentes : livraison, commandes, produits.'],apropos:['À propos · DUVARO','La marque DUVARO : Professional et Prestige.'],contact:['Contact · DUVARO','Contacter le service client DUVARO.'],livraison:['Livraison et retours · DUVARO','Modes de livraison, droit de rétractation et remboursement.'],cgv:['CGV · DUVARO','Conditions générales de vente.'],mentions:['Mentions légales · DUVARO','Mentions légales du site DUVARO.'],confidentialite:['Confidentialité · DUVARO','Politique de confidentialité et données personnelles.'],cookies:['Cookies · DUVARO','Gérer vos préférences de cookies.'],suivi:['Suivi de commande · DUVARO','Suivre une commande DUVARO.'],'404':['Page introuvable · DUVARO','Cette page n’existe pas.'],admin:['Espace gérant · DUVARO','Back-office de démonstration.'],merci:['Merci · DUVARO','Commande confirmée.']};if(v!='produit'){const tt=TT[v]||TT.accueil;setMeta(tt[0],tt[1])}track('page',v);const go=()=>{$$('.view').forEach(x=>x.hidden=x.id!='v-'+v);
+  ({accueil:home,boutique:shop,favoris:fav,commande:co,compte:acc,admin:adm,cookies:ckPage,produit:()=>renderP(pid)})[v]?.();
   document.body.classList.toggle('top',v=='accueil'&&scrollY<40);typeof reveal=='function'&&setTimeout(()=>reveal($('#v-'+v)),50);$$('.links a').forEach(a=>a.classList.toggle('on',a.hash=='#'+(location.hash.slice(1)||'x')));$('#links').classList.remove('on');scrollTo(0,0);cnt()};
  document.startViewTransition?document.startViewTransition(go):go()}
 addEventListener('hashchange',route);
@@ -1240,12 +1329,12 @@ addEventListener('hashchange',route);
 /* ---------- global events ---------- */
 document.addEventListener('click',e=>{const o=e.target.closest('[data-open]'),a=e.target.closest('[data-add]'),w=e.target.closest('[data-wish]');
  if(w){e.stopPropagation();const id=w.dataset.wish;wish=wish.includes(id)?wish.filter(x=>x!=id):[...wish,id];save();$$(`.heart[data-wish="${id}"]`).forEach(h=>h.classList.toggle('on',wish.includes(id)));toast(wish.includes(id)?'Ajouté aux favoris':'Retiré des favoris');if(location.hash=='#favoris')fav();if($('#modal').classList.contains('on')&&w.classList.contains('ghost'))w.textContent=wish.includes(id)?'♥':'♡';return}
- if(a){e.stopPropagation();const p=byId(a.dataset.add);p.var?openP(p.id):add(p.id,null,1,a.parentElement.querySelector('img'));return}
- if(o){openP(o.dataset.open);return}
+ if(a){e.stopPropagation();const p=byId(a.dataset.add);p.var?varSheet(p):add(p.id,null,1,a.parentElement.querySelector('img'));return}
+ if(o){if($('#modal').classList.contains('on'))close();openP(o.dataset.open);return}
  if(e.target.closest('[data-close]')||e.target.id=='scrim'||e.target.id=='modal')close()});
 addEventListener('keydown',e=>{if(e.key=='Escape')close()});
 $('#bMenu').onclick=()=>$('#links').classList.toggle('on');
-$('#bSearch').onclick=()=>{location.hash='boutique';setTimeout(()=>$('#q').focus(),350)};
+
 $('#fNews').onsubmit=e=>{e.preventDefault();if(!$('#nEmail').checkValidity()||!$('#nEmail').value){$('#nMsg').textContent='Saisissez une adresse email valide.';return}if(!$('#nOk').checked){$('#nMsg').textContent='Cochez la case de consentement pour vous inscrire.';return}const em=$('#nEmail').value.trim().toLowerCase(),n=S.get('news',[]);if(!n.includes(em)){n.push(em);S.set('news',n)}$('#nMsg').textContent='Merci, votre inscription est enregistrée.';track('newsletter');e.target.reset()};
 // cookies
 const ck=S.get('cookies',null);if(!ck)$('#cookie').hidden=false;
@@ -1343,6 +1432,21 @@ $('#fCt').onsubmit=e=>{e.preventDefault();const bad=[...e.target.querySelectorAl
 $('#fTr').onsubmit=e=>{e.preventDefault();const n=$('#trN').value.trim().toUpperCase(),em=$('#trE').value.trim().toLowerCase();if(!n||!em){$('#trErr').textContent='Saisissez le numéro et l\'email.';return}
  const o=S.get('orders',[]).find(x=>x.num==n&&x.email.toLowerCase()==em);$('#trErr').textContent=o?'':'Aucune commande ne correspond. Vérifiez le numéro et l\'email.';
  const ST=['En préparation','Expédiée','Livrée'];$('#trRes').innerHTML=o?`<div class="box2" style="margin-top:20px"><b>${o.num}</b> · ${o.date} · ${eur(o.tot)}<ol class="steps">${ST.map((x,i)=>`<li class="${ST.indexOf(o.status)>=i?'done':''}">${x}</li>`).join('')}</ol>${o.status=='Annulée'?'<p>Commande annulée.</p>':''}</div>`:''};
+const so=$('#so'),soQ=$('#soQ');
+function openSearch(){so.hidden=false;soQ.value='';soRun();soQ.focus();document.documentElement.style.overflow='hidden'}
+function closeSearch(){so.hidden=true;document.documentElement.style.overflow=''}
+function soRun(){const q=soQ.value.trim(),nz=t=>t.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(),qs=nz(q).split(/\s+/).filter(Boolean);
+ $('#soS').innerHTML=q?'':`<p class="lbl">Recherches fréquentes</p>${['Lissage','Coloration','Barbe','Collagène','Blond','Visage'].map(t=>`<button data-sq="${t}">${t}</button>`).join('')}`;
+ if(!q){$('#soR').innerHTML='';return}
+ const L=P.filter(p=>{const hay=nz(p.name+' '+p.desc+' '+p.cat);return qs.every(w=>hay.includes(w)||(SYN[w]||'').split(' ').some(x=>x&&hay.includes(nz(x))))});
+ $('#soR').innerHTML=L.length?L.slice(0,12).map(p=>`<button class="so-it" data-sp="${p.id}"><img src="${p.img}" alt=""><span><b>${p.name}</b><small>${p.cat} · ${eur(p.price)}</small></span></button>`).join('')+(L.length>12?`<button class="sq" data-sall>Voir les ${L.length} résultats</button>`:''):`<p>Aucun résultat pour « ${esc(q)} ». Essayez « barbe », « blond » ou « lissage ».</p>`;track('search',q)}
+soQ.oninput=soRun;soQ.onkeydown=e=>{if(e.key=='Enter'){e.preventDefault();$('#q').value=soQ.value;closeSearch();F={u:'',cat:'',cats:[],max:130,promo:false};LIM=12;location.hash=='#boutique'?shop():location.hash='boutique'}if(e.key=='Escape')closeSearch()};
+$('#soX').onclick=closeSearch;
+so.onclick=e=>{const s1=e.target.closest('[data-sq]'),it=e.target.closest('[data-sp]');if(s1){soQ.value=s1.dataset.sq;soRun();soQ.focus()}if(it){closeSearch();openP(it.dataset.sp)}if(e.target.closest('[data-sall]')){soQ.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter'}))}};
+$('#tbS').onclick=openSearch;$('#bSearch').onclick=openSearch;$('#tbC').onclick=()=>openCart();
+const tbSync=()=>{const cq=cart.reduce((s,l)=>s+l.q,0);$('#tbN').textContent=cq||'';$('#tbW').textContent=wish.length||'';const h=(location.hash.slice(1)||'accueil');$$('.tabbar [data-tb]').forEach(a=>a.classList.toggle('on',a.dataset.tb==h||(a.dataset.tb=='boutique'&&['pro','prestige','boutique'].includes(h))))};
+addEventListener('hashchange',tbSync);const _rc=renderCart;renderCart=function(){_rc();tbSync()};
+$('#pBack').onclick=()=>{history.length>1?history.back():location.hash=window._lastView||'boutique'};
 renderCart();route();reveal();
 </script>
 
